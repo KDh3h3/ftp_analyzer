@@ -58,45 +58,73 @@ You can install and run `ftp_analyzer` in just a few steps:
 ```bash
 git clone https://github.com/KDh3h3/ftp_analyzer.git
 cd ftp_analyzer
-
 📦 Step 2: Install Dependencies
+bash
+Copy
+Edit
 pip install -r requirements.txt
-
 💡 If pip is not installed:
-sudo apt install python3-pip -y
 
+bash
+Copy
+Edit
+sudo apt install python3-pip -y
 🔐 Step 3: Run the Tool (as root/admin)
 Use sudo because sniffing requires elevated privileges:
 
+bash
+Copy
+Edit
 sudo python3 ftp_analyzer.py -i <interface>
-Replace <interface> with your system's active network interface:
+Replace <interface> with your system’s active network interface, such as:
 
-Example:
 lo → for localhost (good for testing with local FTP)
-eth0, wlan0, etc. → for wired/wireless sniffing
+
+eth0, wlan0, etc. → for wired/wireless interfaces
 
 🧪 Example for Localhost Testing
-
+bash
+Copy
+Edit
 sudo python3 ftp_analyzer.py -i lo
 In another terminal:
+
+bash
+Copy
+Edit
 ftp 127.0.0.1
-Use any dummy credentials — the tool will sniff them and print to screen.
+Use any dummy credentials — they’ll be sniffed and printed to screen:
 
-🧾 Example Output
-
-[2025-06-01 16:22:40] FTP connection from 192.168.1.10 to 192.168.1.1 (router.local)
-[2025-06-01 16:22:41] FTP Username: admin (from 192.168.1.10)
-[2025-06-01 16:22:42] FTP Password: 123456 (from 192.168.1.10)
-[ALERT - 2025-06-01 16:22:45] Unusual FTP traffic from 192.168.1.10 – 6 connections
-
+text
+Copy
+Edit
+[2025-06-01 16:22:40] FTP connection from 127.0.0.1 to 127.0.0.1 (localhost)
+[2025-06-01 16:22:41] FTP Username: admin (from 127.0.0.1)
+[2025-06-01 16:22:42] FTP Password: 123456 (from 127.0.0.1)
+🚨 [ALERT - 2025-06-01 16:22:45] Unusual FTP traffic from 127.0.0.1 – 6 connections
 🛑 Stopping the Tool
-Press Ctrl + C at any time to stop.
+To stop the tool:
 
-You’ll be asked:
-Do you want to save logs to file? [y/N]:
-If you choose y, logs will be saved as:
+text
+Copy
+Edit
+Press Ctrl + C
+Then you’ll be prompted:
+
+text
+Copy
+Edit
+💾 Do you want to save logs to file? [y/N]:
+If you select y, logs will be saved as:
+
 ftp_traffic.log
+
 ftp_alerts.log
+
+yaml
+Copy
+Edit
+
 
 ⚖️ Ethical Disclaimer
 This tool is for educational and authorized use only.
