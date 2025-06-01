@@ -58,25 +58,25 @@ You can install and run `ftp_analyzer` in just a few steps:
 ```bash
 git clone https://github.com/KDh3h3/ftp_analyzer.git
 cd ftp_analyzer
----
+```
 
 ### 📦 Step 2: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
----
+```
 
 💡 If pip is not installed:
 ```bash
 sudo apt install python3-pip -y
----
+```
 
 ### 🔐 Step 3: Run the Tool (as root/admin)
 Use sudo because sniffing requires elevated privileges:
 
 ```bash
 sudo python3 ftp_analyzer.py -i <interface>
----
+```
 
 Replace <interface> with your system’s active network interface, such as:
 lo → for localhost (good for testing with local FTP)
@@ -85,12 +85,12 @@ eth0, wlan0, etc. → for wired/wireless interfaces
 ### 🧪 Example for Localhost Testing
 ```bash
 sudo python3 ftp_analyzer.py -i lo
----
+```
 
 In another terminal:
 ```bash
 ftp 127.0.0.1
----
+```
 
 Use any dummy credentials — they’ll be sniffed and printed to screen:
 
@@ -99,7 +99,7 @@ Use any dummy credentials — they’ll be sniffed and printed to screen:
 [2025-06-01 16:22:41] FTP Username: admin (from 127.0.0.1)
 [2025-06-01 16:22:42] FTP Password: 123456 (from 127.0.0.1)
 [ALERT - 2025-06-01 16:22:45] Unusual FTP traffic from 127.0.0.1 – 6 connections
----
+```
 
 ### 🛑 Stopping the Tool
 To stop the tool:
@@ -107,7 +107,7 @@ Press Ctrl + C
 Then you’ll be prompted:
 ```bash
 Do you want to save logs to file? [y/N]:
----
+```
 If you select y, logs will be saved as:
 ftp_traffic.log
 ftp_alerts.log
